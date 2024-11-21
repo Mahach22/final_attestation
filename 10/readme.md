@@ -29,4 +29,23 @@ backupSchedule: "*/5 * * * *" — планирует автоматическо�
 
 **Выполнение задания:** <br>
 
+Minikube у нас запущен, Helm установлен.
+
+Добавляем репозиторий для MySQL Operator:
+```
+helm repo add mysql-operator https://mysql.github.io/mysql-operator/
+helm repo update
+```
+Устанавливаем MySQL Operator с использованием Helm:
+```
+helm install mysql-operator mysql-operator/mysql-operator --namespace mysql-operator --create-namespace
+```
+
+
+
+
+
+
+
+
 
