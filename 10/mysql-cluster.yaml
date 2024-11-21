@@ -11,12 +11,4 @@ spec:
   #  mode: "SinglePrimary"  
   router:
     instances: 1
-  storage:
-    dataVolumeClaimTemplate:
-      metadata:
-        name: mysql-data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 10Gi
+
