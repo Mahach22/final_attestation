@@ -50,5 +50,52 @@ helm install mysql-operator mysql-operator/mysql-operator --namespace mysql-oper
 echo -n 'значение' | base64
 ```
 
+Применяем оба манифеста:
+```
+kubectl apply -f mysql-secret.yaml
+kubectl apply -f mysql-cluster.yaml
+```
+Проверяем статус
+```
+kubectl get mysqlclusters
+```
 
+
+Вход в MySQL и работа с базой данных
+Чтобы зайти в MySQL, используйте pod, созданный MySQL Operator. Сначала найдите pod:
+```
+kubectl get pods -l app=mysql
+```
+Затем выполните подключение:
+```
+kubectl exec -it <pod-name> -- mysql -u root -p
+```
+Работайте с базой данных: создавайте таблицы, добавляйте данные, выполняйте запросы.
+
+
+**Откат БД к предыдущему состоянию**
+MySQL Operator создаст автоматические резервные копии. Для отката:
+Проверьте список резервных копий:
+```
+kubectl get backups
+```
+Выберите нужную резервную копию и выполните восстановление:
+```
+kubectl apply -f - <<EOF
+apiVersion: mysql.oracle.com/v2
+kind: MySQLRestore
+metadata:
+  name: restore-backup
+  namespace: default
+spec:
+  clusterRef:
+    name: mysql-cluster
+  backupRef:
+    name: <имя_резервной_копии>
+EOF
+```
+Подождите завершения процесса восстановления:
+```
+kubectl get mysqlrestore restore-backup
+```
 
