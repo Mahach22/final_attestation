@@ -83,17 +83,17 @@ helm install mysql-operator mysql-operator/mysql-operator --namespace mysql-oper
 
 
 
-Создаем секрет [mysql-secret.yaml](https://github.com/Mahach22/final_attestation/blob/main/10/mysql-secret.yaml) с учетными данными для MySQL 
-Учетные данные зашифрованы следующей баш командой:
+Создаем секрет в соответствии с официальной документацией для нашего MySQL 
 ```
-echo -n 'значение' | base64
+kubectl create secret generic mysql-secret \
+        --from-literal=rootUser=root \
+        --from-literal=rootHost=% \
+        --from-literal=rootPassword="sakila"
 ```
+
 Создаем конфигурацию для MySQL кластера [mysql-cluster.yaml](https://github.com/Mahach22/final_attestation/blob/main/10/mysql-cluster.yaml).
-
-
-Применяем оба манифеста:
+Применяем манифест:
 ```
-kubectl apply -f mysql-secret.yaml
 kubectl apply -f mysql-cluster.yaml
 ```
 Проверяем статус
