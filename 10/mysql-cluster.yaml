@@ -4,12 +4,13 @@ metadata:
   name: mysql-cluster
   namespace: default
 spec:
+  name: mysql-secret
   instances: 3
   mysqlVersion: "8.0"  
-  topology:
-    mode: "SinglePrimary"  
+ # topology:
+  #  mode: "SinglePrimary"  
   router:
-    instances: 2
+    instances: 1
   storage:
     dataVolumeClaimTemplate:
       metadata:
@@ -19,5 +20,3 @@ spec:
         resources:
           requests:
             storage: 10Gi
-  secret:
-    name: mysql-secret
