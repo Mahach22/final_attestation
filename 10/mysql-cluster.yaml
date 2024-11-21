@@ -11,14 +11,17 @@ spec:
   service:
     type: ClusterIP        # Тип сервиса
     defaultPort: mysql-rw  # Порт для чтения и записи
-  backups:
-    schedule: "*/5 * * * *" # Расписание резервного копирования
-    storages:
-      - name: backup-storage
-        persistentVolumeClaim:
-          storageClassName: "standard" # Замените на ваш StorageClass
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 1Gi
+  backupProfiles:       
+    - name: myfancyprofile  # Embedded backup profile
+      dumpInstance:         # MySQL Shell Dump
+        dumpOptions:
+          excludeTables:
+          - world.country   # Example to exclude one table 
+        storage:
+          persistentVolumeClaim:
+              claimName: myexample-pvc # store to this pre-existing PVC
+  backupSchedules:
+    - name: mygreatschedule
+      schedule: "*/5 * * * *" 
+      backupProfileName:  myfancyprofile # reference the desired backupProfiles's name 
+      enabled: true # backup schedules can be temporarily disabled
