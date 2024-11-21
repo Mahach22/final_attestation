@@ -42,8 +42,18 @@ helm repo update
 helm install mysql-operator mysql-operator/mysql-operator --namespace mysql-operator --create-namespace
 ```
 
-
-
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+  namespace: default
+type: Opaque
+data:
+  MYSQL_ROOT_PASSWORD:ZGVmYXVsdA==
+  MYSQL_USER:ZGVmYXVsdA==
+  MYSQL_PASSWORD:ZGVmYXVsdA==
+```
 
 
 
