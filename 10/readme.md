@@ -30,7 +30,7 @@ backupSchedule: "*/5 * * * *" — планирует автоматическо�
 
 **Решение согласно условию задания:** <br>
 
-
+[mysql-cluster.yaml](https://github.com/Mahach22/final_attestation/blob/main/10/mysql-cluster.yaml)
 
 
 
@@ -57,6 +57,8 @@ helm install mysql-operator mysql-operator/mysql-operator --namespace mysql-oper
 ```
 echo -n 'значение' | base64
 ```
+Создаем конфигурацию для MySQL кластера [mysql-cluster.yaml](https://github.com/Mahach22/final_attestation/blob/main/10/mysql-cluster.yaml).
+
 
 Применяем оба манифеста:
 ```
