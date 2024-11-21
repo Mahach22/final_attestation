@@ -98,7 +98,7 @@ kubectl apply -f mysql-cluster.yaml
 ```
 Проверяем статус
 ```
-kubectl get mysqlclusters
+kubectl get innodbclusters -n default 
 ```
 
 
