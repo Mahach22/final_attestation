@@ -4,24 +4,20 @@ metadata:
   name: mysql-cluster
   namespace: default
 spec:
-  replicas: 3
-  version: "8.0"
-  secretRef: mysql-secret
-  backupPolicy:
-    schedule: "*/5 * * * *"
-    retentionCount: 3
-  resources:
-    requests:
-      cpu: "500m"
-      memory: "1Gi"
-    limits:
-      cpu: "1"
-      memory: "2Gi"
-  volumeClaimTemplates:
-    - metadata:
+  instances: 3
+  mysqlVersion: "8.0"  
+  topology:
+    mode: "SinglePrimary"  
+  router:
+    instances: 2
+  storage:
+    dataVolumeClaimTemplate:
+      metadata:
         name: mysql-data
       spec:
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
             storage: 10Gi
+  secret:
+    name: mysql-secret
