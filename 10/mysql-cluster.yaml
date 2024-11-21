@@ -4,14 +4,21 @@ metadata:
   name: mysql-cluster
   namespace: default
 spec:
-  members: 3
-  version: "8.0.0"  
-  secretRef:
-    name: mysql-secret
-  backup:
-    enabled: true
-    schedule: "*/5 * * * *"
+  secretName: mysql-secret # Секрет с учетными данными для MySQL
+  version: "8.0.32"        # Версия MySQL
+  instances: 3             # Количество реплик в кластере
+  tlsUseSelfSigned: true   # Использовать самоподписанные сертификаты
+  service:
+    type: ClusterIP        # Тип сервиса
+    defaultPort: mysql-rw  # Порт для чтения и записи
+  backups:
+    schedule: "*/5 * * * *" # Расписание резервного копирования
     storages:
-      - storageName: default
-        storageClassName: "standard" 
-        volumeSize: "1Gi"
+      - name: backup-storage
+        persistentVolumeClaim:
+          storageClassName: "standard" # Замените на ваш StorageClass
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
