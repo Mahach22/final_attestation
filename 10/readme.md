@@ -44,7 +44,11 @@ helm install mysql-operator mysql-operator/mysql-operator --namespace mysql-oper
 
 
 
-
+Создаем секрет с учетными данными для MySQL [mysql-secret.yaml](https://github.com/Mahach22/final_attestation/blob/main/10/mysql-secret.yaml)
+Учетные данные зашифрованы следующей баш командой:
+```
+echo -n 'значение' | base64
+```
 
 
 
