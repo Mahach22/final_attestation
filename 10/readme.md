@@ -32,6 +32,37 @@ backupSchedule: "*/5 * * * *" — планирует автоматическо�
 
 [mysql-cluster.yaml](https://github.com/Mahach22/final_attestation/blob/main/10/mysql-cluster.yaml)
 
+Выполнение команды для просмотра списка резервных копий
+
+
+
+Выполнение команды для восстановления из резервной копии
+
+Проверьте список резервных копий:
+```
+kubectl get backups
+```
+Выберите нужную резервную копию и выполните восстановление:
+```
+kubectl apply -f - <<EOF
+apiVersion: mysql.oracle.com/v2
+kind: MySQLRestore
+metadata:
+  name: restore-backup
+  namespace: default
+spec:
+  clusterRef:
+    name: mysql-cluster
+  backupRef:
+    name: <имя_резервной_копии>
+EOF
+```
+Подождите завершения процесса восстановления:
+```
+kubectl get mysqlrestore restore-backup
+```
+
+
 
 
 ---
