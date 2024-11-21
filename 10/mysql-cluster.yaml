@@ -4,13 +4,14 @@ metadata:
   name: mysql-cluster
   namespace: default
 spec:
-  minimumReplicas: 3
-  mysqlVersion: "8.0.0"
+  members: 3
+  version: "8.0.0"  
   secretRef:
     name: mysql-secret
-  backupPolicy:
+  backup:
     enabled: true
     schedule: "*/5 * * * *"
-    storageClassName: "standard" 
-    volumeSize: 1Gi
-
+    storages:
+      - storageName: default
+        storageClassName: "standard" 
+        volumeSize: "1Gi"
