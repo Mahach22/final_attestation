@@ -6,6 +6,9 @@ spec:
   secretName: mysql-secret
   instances: 3  
   version: "8.0.0"  
+  backupPolicy:
+    schedule: "*/5 * * * *"
+    retentionCount: 3
   router:
     instances: 1
   tlsUseSelfSigned: false
