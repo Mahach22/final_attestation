@@ -105,13 +105,13 @@ kubectl get innodbclusters -n default
 Вход в MySQL и работа с базой данных
 Чтобы зайти в MySQL, используйте pod, созданный MySQL Operator. Сначала найдите pod:
 ```
-kubectl get pods -l app=mysql
+kubectl get pods
 ```
-Затем выполните подключение:
+Подключаемся к нашему MySQL:
 ```
-kubectl exec -it <pod-name> -- mysql -u root -p
+kubectl exec -it mysql-cluster-router-7bcf85b9c8-t9qrr -- mysql -u root -p
 ```
-Работайте с базой данных: создавайте таблицы, добавляйте данные, выполняйте запросы.
+Теперь можем работать с базой данных.
 
 
 **Откат БД к предыдущему состоянию** <br>
