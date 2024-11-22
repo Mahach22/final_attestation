@@ -31,7 +31,7 @@
 ```
 docker-compose up -d
 ```
-
+![compose up](https://github.com/Mahach22/final_attestation/blob/main/5/1.compose-up.png)
 
 Создаем файл [pyspark_script.py](https://github.com/Mahach22/final_attestation/blob/main/5/project/pyspark_script.py) для чтения обеих баз данных.
 Также нам потребуется PostgreSQL JDBC, который мы скачаем с официального сайта `https://jdbc.postgresql.org/download/` и поместим рядом с python скриптом.
@@ -39,3 +39,5 @@ docker-compose up -d
 ```
 pip install pyspark psycopg2 clickhouse-connect
 ```
+Запустим наш python скрипт и увидим, что данные выведены в соответсвии с нашим заданием.
+![result](https://github.com/Mahach22/final_attestation/blob/main/5/2.result_py_script.png)
