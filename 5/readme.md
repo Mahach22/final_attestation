@@ -40,7 +40,7 @@ docker-compose up -d
 
 При отсутствии установим зависимости:
 ```
-pip install pyspark psycopg2 clickhouse-connect
+pip install pyspark 
 ```
 Запустим наш python скрипт и увидим, что данные выведены в соответствии с нашим заданием. <br>
 
