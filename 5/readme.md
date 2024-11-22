@@ -36,7 +36,8 @@ docker-compose up -d
 
 Создаем файл [pyspark_script.py](https://github.com/Mahach22/final_attestation/blob/main/5/project/pyspark_script.py) для чтения обеих баз данных. <br>
 
-Также нам потребуется PostgreSQL JDBC, который мы скачаем с официального сайта `https://jdbc.postgresql.org/download/` и поместим рядом с python скриптом. <br>
+Нам потребуется PostgreSQL JDBC, который мы скачаем с официального сайта `https://jdbc.postgresql.org/download/` и поместим рядом с python скриптом. <br>
+И конечно нам нужен ClickHouse JDBC с сайта `https://mvnrepository.com/artifact/com.clickhouse/clickhouse-jdbc/0.4.6` <br>
 
 При отсутствии установим зависимости:
 ```
