@@ -16,7 +16,7 @@
 
 Результат задания — после выполнения задания у вас будет Docker-среда, в которой будет 2 базы данных. Используя PySpark, необходимо прочитать данные из обеих БД в рамках одного скрипта.
 
-![primer](https://github.com/Mahach22/final_attestation/blob/main/5/0.primer.png)
+<img src="https://github.com/Mahach22/final_attestation/blob/main/5/0.primer.png" width="200" height="400">
 
 
 ---
