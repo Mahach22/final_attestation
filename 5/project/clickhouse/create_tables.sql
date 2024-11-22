@@ -1,8 +1,8 @@
 CREATE TABLE test_table (
     id UInt32,
     name String,
-    value Int32,
-    value Int32    
+    age Int32,
+    salary Int32    
 ) ENGINE = MergeTree()
 ORDER BY id;
 
