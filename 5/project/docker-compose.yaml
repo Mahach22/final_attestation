@@ -17,5 +17,10 @@ services:
     container_name: clickhouse_container
     ports:
       - "8123:8123"
+      - "9000:9000"
+    environment:
+      - CLICKHOUSE_DB=default
+      - CLICKHOUSE_USER=default
+      - CLICKHOUSE_PASSWORD=default      
     volumes:
       - ./clickhouse/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
