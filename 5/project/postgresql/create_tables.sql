@@ -1,11 +1,11 @@
 CREATE TABLE test_table (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50),
-    value INTEGER,
-    value INTEGER
+    age INTEGER,
+    salary INTEGER
 );
 
-INSERT INTO test_table (name, value) VALUES
+INSERT INTO test_table (id, name, city, age) VALUES
 (1, 'Мурад', 23, 87000),
 (2, 'Залина', 21, 300000),
 (3, 'Рустам', 29, 64000),
