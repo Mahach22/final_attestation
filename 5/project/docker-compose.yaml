@@ -9,6 +9,10 @@ services:
       POSTGRES_DB: testdb
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_USER=default
+      - POSTGRES_PASSWORD=default
+      - POSTGRES_DB=default
     volumes:
       - ./postgresql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
 
