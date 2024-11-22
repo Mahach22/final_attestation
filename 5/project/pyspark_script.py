@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 import psycopg2
-from clickhouse_connect.driver.client import Client
+from clickhouse_driver import Client
 
 # Настройки PostgreSQL
 pg_config = {
@@ -14,7 +14,7 @@ pg_config = {
 # Настройки ClickHouse
 ch_config = {
     "host": "localhost",
-    "port": 8123,
+    "port": 9000,
     "username": "default",
     "password": "default"
 }
@@ -36,19 +36,18 @@ pg_df = spark.read.format("jdbc").options(
 ).load()
 
 # Чтение данных из ClickHouse
-ch_client = Client(host=ch_config['host'], port=ch_config['port'])
+ch_client = Client(host=ch_config['host'], port=ch_config['port'], user=ch_config['username'], password=ch_config['password'])
 ch_query = "SELECT * FROM test_table"
 ch_data = ch_client.query_dataframe(ch_query)
 
 # Конвертация ClickHouse данных в Spark DataFrame
 ch_df = spark.createDataFrame(ch_data)
 
-# Объединение данных
-combined_df = pg_df.union(ch_df)
+#вывод объединённых данных
+print("Данные из PostgreSQL:")
+pg_df.show()
+print("Данные из ClickHouse:")
+ch_df.show()
 
-# Вывод объединённых данных
-combined_df.show()
-
-# Завершение работы
-pg_conn.close()
-ch_client.close()
+# завершение работы
+spark.stop()
