@@ -24,7 +24,7 @@
 
 **Выполнение задания:** <br>
 
-Создаем файлы [create_tables.sql для PostgreSQL](https://github.com/Mahach22/final_attestation/blob/main/5/project/postgresql/create_tables.sql) и [create_tables.sql для ClickHouse](https://github.com/Mahach22/final_attestation/blob/main/5/project/clickhouse/create_tables.sql) в своих папках, чтобы не было путанницы. <br>
+Создаем файлы [create_tables.sql для PostgreSQL](https://github.com/Mahach22/final_attestation/blob/main/5/project/postgresql/create_tables.sql) и [create_tables.sql для ClickHouse](https://github.com/Mahach22/final_attestation/blob/main/5/project/clickhouse/create_tables.sql) в своих папках, чтобы не было путаницы. <br>
 
 Создаем [docker-compose.yaml](https://github.com/Mahach22/final_attestation/blob/main/5/project/docker-compose.yaml) для наших контейнеров PostgreSQL и ClickHouse.
 
