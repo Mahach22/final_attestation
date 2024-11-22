@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: testdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgresql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse_container
+    ports:
+      - "8123:8123"
+    volumes:
+      - ./clickhouse/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql

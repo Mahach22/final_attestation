@@ -31,3 +31,11 @@
 
 **Подробное выполнение задания:** <br>
 
+
+
+docker-compose up -d
+
+pip install pyspark psycopg2 clickhouse-connect
+
+
+python pyspark_script.py
