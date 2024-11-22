@@ -11,6 +11,7 @@
 *	Выполните команду для запуска контейнеров с PostgreSQL и ClickHouse.
 *	Создайте файл pyspark_script.py в вашем локальном окружении (вне Docker), который будет подключаться к обеим базам данных и читать данные.
 *	Вы должны увидеть вывод данных из обеих баз данных (PostgreSQL и ClickHouse), считанных и обработанных PySpark. <br>
+
 Пример вывода: 
  
 <img src="https://github.com/Mahach22/final_attestation/blob/main/5/0.primer.png" width="200" height="400">
