@@ -16,7 +16,7 @@ ch_config = {
     "host": "localhost",
     "port": 8123,
     "username": "default",
-    "password": ""
+    "password": "default"
 }
 
 # Создание SparkSession
