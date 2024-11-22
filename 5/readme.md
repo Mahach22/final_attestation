@@ -42,6 +42,6 @@ docker-compose up -d
 ```
 pip install pyspark psycopg2 clickhouse-connect
 ```
-Запустим наш python скрипт и увидим, что данные выведены в соответсвии с нашим заданием. <br>
+Запустим наш python скрипт и увидим, что данные выведены в соответствии с нашим заданием. <br>
 
 ![result](https://github.com/Mahach22/final_attestation/blob/main/5/2.result_py_script.png)
