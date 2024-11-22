@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 import psycopg2
-from clickhouse_connect import Client
+from clickhouse_connect.driver.client import Client
 
 # Настройки PostgreSQL
 pg_config = {
