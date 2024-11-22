@@ -13,10 +13,10 @@
 *	Вы должны увидеть вывод данных из обеих баз данных (PostgreSQL и ClickHouse), считанных и обработанных PySpark. <br>
 Пример вывода: 
  
+<img src="https://github.com/Mahach22/final_attestation/blob/main/5/0.primer.png" width="200" height="400">
 
 Результат задания — после выполнения задания у вас будет Docker-среда, в которой будет 2 базы данных. Используя PySpark, необходимо прочитать данные из обеих БД в рамках одного скрипта.
 
-<img src="https://github.com/Mahach22/final_attestation/blob/main/5/0.primer.png" width="200" height="400">
 
 
 ---
